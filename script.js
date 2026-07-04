@@ -290,3 +290,34 @@ function renderDashboardTiles(ticker, quote, profile, metrics, news, calendar, r
     runQuantitativeAnalysis(quote.c, high52, low52, metrics.peNormalizedAnnual, metrics.beta);
 }
 
+
+
+function runQuantitativeAnalysis(currentPrice, high52, low52, peRatio, beta) {
+    const verdictBadge = document.getElementById('verdictBadge');
+    const verdictReason = document.getElementById('verdictReason');
+    const riskProgress = document.getElementById('riskProgress');
+
+
+    verdictBadge.className = 'verdict-text';
+    const betaRiskFactor = Math.min(Math.max((beta || 1.0) * 50, 10), 100);
+    setTimeout(() => {
+        riskProgress.style.width = `${betaRiskFactor}%`;
+        riskProgress.style.backgroundColor = betaRiskFactor > 65 ? 'var(--sell-color)' : (betaRiskFactor > 40 ? 'var(--hold-color)' : 'var(--buy-color)');
+    }, 200);
+
+
+    const pFromLow = ((currentPrice - low52) / low52) * 100;
+    const pFromHigh = ((high52 - currentPrice) / high52) * 100;
+
+
+    if (pFromLow < 12 && (peRatio && peRatio < 22)) {
+        verdictBadge.textContent = "ACCUMULATE"; verdictBadge.classList.add('color-buy');
+        verdictReason.textContent = "Asset properties are compressed near a 52-week floor with strong value multiples. Highly favorable entry metrics detected.";
+    } else if (pFromHigh < 4 || (peRatio && peRatio > 45)) {
+        verdictBadge.textContent = "LIQUIDATE"; verdictBadge.classList.add('color-sell');
+        verdictReason.textContent = "Risk boundaries breached via fundamental over-extension. High divergence vulnerability detected at current pricing.";
+    } else {
+        verdictBadge.textContent = "ALLOCATE / HOLD"; verdictBadge.classList.add('color-hold');
+        verdictReason.textContent = "Equilibrium distribution mechanics are stable. Maintain position allocation pending further momentum execution signals.";
+    }
+}

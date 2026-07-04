@@ -474,3 +474,29 @@ function updatePortfolioUI() {
         starBtn.classList.remove('active'); starBtn.textContent = '☆';
     }
 }
+
+
+
+function addToHistory(ticker, price, name) {
+    const entry = { ticker, price, name: name || 'Unknown', time: new Date().toLocaleTimeString() };
+    searchHistory = searchHistory.filter(item => item.ticker !== ticker);
+    searchHistory.unshift(entry);
+    if(searchHistory.length > 15) searchHistory.pop(); 
+    localStorage.setItem('tileStockHistory', JSON.stringify(searchHistory));
+    updateHistoryUI();
+}
+
+
+function updateHistoryUI() {
+    historyList.innerHTML = ''; 
+    if (searchHistory.length === 0) {
+        historyList.innerHTML = '<p class="empty-msg" style="color:var(--text-muted); text-align:center;">No recent searches.</p>'; return;
+    }
+    searchHistory.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'history-item';
+        div.innerHTML = `<strong>${item.ticker}</strong> - $${item.price.toFixed(2)} <br><small style="color:var(--text-muted)">${item.name} • ${item.time}</small>`;
+        div.onclick = () => { tickerInput.value = item.ticker; searchBtn.click(); };
+        historyList.appendChild(div);
+    });
+}

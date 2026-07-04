@@ -249,3 +249,31 @@
                     <li><span>Dividend Yield</span> <strong id="divYieldValue">--</strong></li>
                 </ul>
             </div>
+
+
+
+            <div class="tile analyst-tile">
+                <h3>Wall Street Consensus</h3>
+                <div class="analyst-bars">
+                    <div class="bar-row">
+                        <span>Strong Buy</span>
+                        <div class="bar-bg"><div id="recStrongBuy" class="bar-fill bg-buy"></div></div>
+                        <span id="txtStrongBuy" class="bar-val">0</span>
+                    </div>
+                    <div class="bar-row">
+                        <span>Buy</span>
+                        <div class="bar-bg"><div id="recBuy" class="bar-fill bg-buy"></div></div>
+                        <span id="txtBuy" class="bar-val">0</span>
+                    </div>
+                    <div class="bar-row">
+                        <span>Hold</span>
+                        <div class="bar-bg"><div id="recHold" class="bar-fill bg-hold"></div></div>
+                        <span id="txtHold" class="bar-val">0</span>
+                    </div>
+                    <div class="bar-row">
+                        <span>Sell</span>
+                        <div class="bar-bg"><div id="recSell" class="bar-fill bg-sell"></div></div>
+                        <span id="txtSell" class="bar-val">0</span>
+                    </div>
+                </div>
+            </div>

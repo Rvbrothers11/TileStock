@@ -146,3 +146,11 @@ async function executeMarketDataPipeline(ticker) {
             fetch(`https://finnhub.io/api/v1/calendar/earnings?symbol=${ticker}&token=${API_KEY}`),
             fetch(`https://finnhub.io/api/v1/stock/recommendation?symbol=${ticker}&token=${API_KEY}`)
         ]);
+
+
+        const quote = await quoteRes.json();
+        const profile = await profileRes.json();
+        const metrics = await metricRes.json();
+        const news = await newsRes.json();
+        const calendar = await calendarRes.json();
+        const recommendations = await recRes.json();

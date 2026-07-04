@@ -154,3 +154,6 @@ async function executeMarketDataPipeline(ticker) {
         const news = await newsRes.json();
         const calendar = await calendarRes.json();
         const recommendations = await recRes.json();
+
+
+        if (!quote.c || quote.c === 0) throw new Error("Invalid Ticker or No Data");

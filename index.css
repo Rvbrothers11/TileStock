@@ -277,3 +277,15 @@
                     </div>
                 </div>
             </div>
+
+
+            <div class="tile currency-tile">
+                <h3>Global FX Exchange Matrix</h3>
+                <div class="fx-base">Base Reference Asset Value: <span id="fxBaseDisplay">$0.00 USD</span></div>
+                <div class="currency-grid">
+                    <div class="fx-item"><span>EUR (€)</span> <strong id="fxEur">--</strong></div>
+                    <div class="fx-item"><span>GBP (£)</span> <strong id="fxGbp">--</strong></div>
+                    <div class="fx-item"><span>JPY (¥)</span> <strong id="fxJpy">--</strong></div>
+                    <div class="fx-item"><span>CAD ($)</span> <strong id="fxCad">--</strong></div>
+                </div>
+            </div>

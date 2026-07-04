@@ -390,3 +390,42 @@ document.getElementById('starBtn').addEventListener('click', () => {
 function executeRealTrade(type) {
     const qty = parseInt(document.getElementById('tradeQty').value);
     if(isNaN(qty) || qty <= 0 || !currentTicker) return;
+
+
+    const totalCost = qty * currentAssetPrice;
+
+
+    if(type === 'BUY') {
+        if(paperBalance >= totalCost) {
+            paperBalance -= totalCost;
+            if(!paperHoldings[currentTicker]) paperHoldings[currentTicker] = { qty: 0, avgPrice: 0 };
+            const oldTotal = paperHoldings[currentTicker].qty * paperHoldings[currentTicker].avgPrice;
+            paperHoldings[currentTicker].qty += qty;
+            paperHoldings[currentTicker].avgPrice = (oldTotal + totalCost) / paperHoldings[currentTicker].qty;
+        } else {
+            alert('Insufficient Paper Funds!'); return;
+        }
+    } else if(type === 'SELL') {
+        if(paperHoldings[currentTicker] && paperHoldings[currentTicker].qty >= qty) {
+            paperBalance += totalCost;
+            paperHoldings[currentTicker].qty -= qty;
+            if(paperHoldings[currentTicker].qty === 0) delete paperHoldings[currentTicker];
+        } else {
+            alert('Insufficient Shares to Sell!'); return;
+        }
+    }
+
+
+    savePortfolioState();
+    updatePortfolioUI();
+
+
+    const btn = document.getElementById(type === 'BUY' ? 'buyRealBtn' : 'sellRealBtn');
+    const oldText = btn.textContent;
+    btn.textContent = 'EXECUTED';
+    setTimeout(() => btn.textContent = oldText, 1000);
+}
+
+
+document.getElementById('buyRealBtn').addEventListener('click', () => executeRealTrade('BUY'));
+document.getElementById('sellRealBtn').addEventListener('click', () => executeRealTrade('SELL'));

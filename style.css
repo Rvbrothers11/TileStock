@@ -474,3 +474,32 @@ button#searchBtn:hover {
 .game-view {
     padding: 2rem;
 }
+
+
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1.5rem;
+}
+
+
+.game-info h4 {
+    color: var(--text-main);
+    margin-bottom: 0.25rem;
+}
+
+
+.game-info p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+
+.game-stats {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}

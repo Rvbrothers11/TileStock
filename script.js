@@ -429,3 +429,48 @@ function executeRealTrade(type) {
 
 document.getElementById('buyRealBtn').addEventListener('click', () => executeRealTrade('BUY'));
 document.getElementById('sellRealBtn').addEventListener('click', () => executeRealTrade('SELL'));
+
+
+
+function updatePortfolioUI() {
+    document.getElementById('paperBalanceDisplay').textContent = `$${paperBalance.toFixed(2)}`;
+
+
+    const hList = document.getElementById('holdingsList');
+    hList.innerHTML = '';
+    if(Object.keys(paperHoldings).length === 0) {
+        hList.innerHTML = '<p class="empty-msg" style="color:var(--text-muted); text-align:center;">No open positions.</p>';
+    } else {
+        for(let t in paperHoldings) {
+            const h = paperHoldings[t];
+            const div = document.createElement('div');
+            div.className = 'history-item';
+            div.innerHTML = `<strong>${t}</strong> • ${h.qty} Shrs <br><small style="color:var(--text-muted)">Avg Entry: $${h.avgPrice.toFixed(2)}</small>`;
+            div.onclick = () => { tickerInput.value = t; searchBtn.click(); portfolioPanel.classList.remove('open'); };
+            hList.appendChild(div);
+        }
+    }
+
+
+    const wList = document.getElementById('watchlistContainer');
+    wList.innerHTML = '';
+    if(watchlist.length === 0) {
+        wList.innerHTML = '<p class="empty-msg" style="color:var(--text-muted); text-align:center;">No starred tickers.</p>';
+    } else {
+        watchlist.forEach(w => {
+            const div = document.createElement('div');
+            div.className = 'history-item';
+            div.innerHTML = `<span style="color:#f59e0b;">★</span> <strong>${w}</strong>`;
+            div.onclick = () => { tickerInput.value = w; searchBtn.click(); portfolioPanel.classList.remove('open'); };
+            wList.appendChild(div);
+        });
+    }
+
+
+    const starBtn = document.getElementById('starBtn');
+    if(watchlist.includes(currentTicker)) {
+        starBtn.classList.add('active'); starBtn.textContent = '★';
+    } else {
+        starBtn.classList.remove('active'); starBtn.textContent = '☆';
+    }
+}

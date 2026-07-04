@@ -30,3 +30,19 @@ document.getElementById('themeSelector').addEventListener('change', (e) => {
         document.body.classList.add(`theme-${e.target.value}`);
     }
 });
+
+
+window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        document.getElementById('introScreen').classList.add('fade-out');
+        const mainContainer = document.getElementById('mainContainer');
+        mainContainer.classList.remove('hidden');
+        setTimeout(() => mainContainer.classList.add('visible'), 50);
+
+
+        initTraderGame();
+        initClickerGame();
+        updateHistoryUI();
+        updatePortfolioUI();
+    }, 1500);
+});

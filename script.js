@@ -21,3 +21,12 @@ let currentTicker = '';
 let currentAssetPrice = 0;
 let liveWs = null;
 let currentWsTicker = '';
+
+
+
+document.getElementById('themeSelector').addEventListener('change', (e) => {
+    document.body.className = '';
+    if(e.target.value !== 'default') {
+        document.body.classList.add(`theme-${e.target.value}`);
+    }
+});

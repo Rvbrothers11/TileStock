@@ -618,3 +618,112 @@ button#searchBtn:hover {
     border-radius: 12px;
     border: 1px solid var(--border);
 }
+
+
+.clicker-stats h3 {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+
+.clicker-stats h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+
+.clicker-stats p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+
+.terminal-click-btn {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 800;
+    border-radius: 8px;
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    cursor: pointer;
+    transition: 0.1s;
+    letter-spacing: 0.05em;
+}
+
+
+.terminal-click-btn:active {
+    transform: scale(0.97);
+    background: rgba(59, 130, 246, 0.1);
+}
+
+
+.pulse-icon {
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+
+.upgrades-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+.upgrades-panel h4 {
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+}
+
+
+.upgrade-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background: var(--bg-color);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+    text-align: left;
+}
+
+
+.upgrade-btn:hover {
+    border-color: var(--accent);
+    background: var(--card-hover);
+}
+
+
+.upg-title {
+    font-weight: bold;
+    color: var(--text-main);
+    flex: 1;
+}
+
+
+.upg-cost {
+    color: var(--sell-color);
+    font-weight: bold;
+    margin-right: 1rem;
+    background: rgba(239, 68, 68, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+
+.upg-effect {
+    color: var(--buy-color);
+    font-size: 0.9rem;
+    font-weight: bold;
+}

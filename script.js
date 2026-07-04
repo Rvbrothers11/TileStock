@@ -565,3 +565,4 @@ function initClickerGame() {
     });
     setInterval(() => { if (incomePerSec > 0) { funds += (incomePerSec / 10); fundsEl.textContent = `$${funds.toFixed(2)}`; } }, 100);
 }
+

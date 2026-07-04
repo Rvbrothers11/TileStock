@@ -124,3 +124,6 @@ searchBtn.addEventListener('click', async () => {
     loader.textContent = `Fetching live market data for ${actualTicker}...`;
     executeMarketDataPipeline(actualTicker);
 });
+
+
+tickerInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') searchBtn.click(); });

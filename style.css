@@ -173,3 +173,11 @@ header {
     flex-wrap: wrap;
     gap: 1.5rem;
 }
+
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}

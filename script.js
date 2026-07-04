@@ -181,3 +181,31 @@ async function executeMarketDataPipeline(ticker) {
         document.getElementById('errorMessage').classList.remove('hidden');
     }
 }
+
+
+
+function renderDashboardTiles(ticker, quote, profile, metrics, news, calendar, recs) {
+    document.getElementById('stockName').textContent = profile.name || "Unknown Entity";
+    document.getElementById('stockTicker').textContent = `${ticker} | ${profile.exchange || 'Global Exchange'}`;
+    document.getElementById('currentPrice').textContent = `$${quote.c.toFixed(2)}`;
+    document.getElementById('openPrice').textContent = `$${quote.o.toFixed(2)}`;
+    document.getElementById('prevClosePrice').textContent = `$${quote.pc.toFixed(2)}`;
+
+
+    const changeEl = document.getElementById('priceChange');
+    changeEl.textContent = `${quote.dp >= 0 ? '+' : ''}${quote.dp.toFixed(2)}%`;
+    changeEl.className = `badge ${quote.dp >= 0 ? 'bg-buy' : 'bg-sell'}`;
+
+
+    const high52 = metrics['52WeekHigh'] || quote.h;
+    const low52 = metrics['52WeekLow'] || quote.l;
+    document.getElementById('high52Value').textContent = `$${high52.toFixed(2)}`;
+    document.getElementById('low52Value').textContent = `$${low52.toFixed(2)}`;
+    document.getElementById('distHighValue').textContent = `-${(((high52 - quote.c) / high52) * 100).toFixed(1)}%`;
+    document.getElementById('distLowValue').textContent = `+${(((quote.c - low52) / low52) * 100).toFixed(1)}%`;
+
+
+    document.getElementById('mcapValue').textContent = profile.marketCapitalization ? `$${(profile.marketCapitalization / 1000).toFixed(2)}B` : 'N/A';
+    document.getElementById('peValue').textContent = metrics.peNormalizedAnnual ? metrics.peNormalizedAnnual.toFixed(1) : 'N/A';
+    document.getElementById('betaValue').textContent = metrics.beta ? metrics.beta.toFixed(2) : 'Unranked';
+    document.getElementById('divYieldValue').textContent = metrics.dividendYieldIndicatedAnnual ? `${metrics.dividendYieldIndicatedAnnual.toFixed(2)}%` : '0.00%';

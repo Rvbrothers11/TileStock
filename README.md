@@ -7,7 +7,7 @@
 
 
 An browser based quantitative market website designed to simulate a professional trading environment. This project was built for **#horizons**!
-**AI Declaration:** There were bugs in my website which I was not able to find. So I used AI to help me fix them.
+**AI Declaration:** There were bugs in my website which I was not able to find. So I used AI to help me fix them and to create the stock verdict. Whether the stock should be sold or bought.
 
 ### What my terminal Does
 

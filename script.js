@@ -289,3 +289,4 @@ function renderDashboardTiles(ticker, quote, profile, metrics, news, calendar, r
 
     runQuantitativeAnalysis(quote.c, high52, low52, metrics.peNormalizedAnnual, metrics.beta);
 }
+

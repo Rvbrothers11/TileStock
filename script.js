@@ -233,3 +233,17 @@ function renderDashboardTiles(ticker, quote, profile, metrics, news, calendar, r
         ['recStrongBuy', 'recBuy', 'recHold', 'recSell'].forEach(id => document.getElementById(id).style.width = '0%');
         ['txtStrongBuy', 'txtBuy', 'txtHold', 'txtSell'].forEach(id => document.getElementById(id).textContent = '0');
     }
+
+
+
+    const baseAmount = quote.c;
+    document.getElementById('fxBaseDisplay').textContent = `$${baseAmount.toFixed(2)} USD`;
+    document.getElementById('fxEur').textContent = `€${(baseAmount * 0.92).toFixed(2)}`;
+    document.getElementById('fxGbp').textContent = `£${(baseAmount * 0.78).toFixed(2)}`;
+    document.getElementById('fxJpy').textContent = `¥${(baseAmount * 155.4).toFixed(2)}`;
+    document.getElementById('fxCad').textContent = `$${(baseAmount * 1.36).toFixed(2)}`;
+
+
+    const earningsDateEl = document.getElementById('earningsDate');
+    earningsDateEl.textContent = (calendar.earningsCalendar && calendar.earningsCalendar.length > 0) ? calendar.earningsCalendar[0].date : "No near-term release scheduled.";
+    document.getElementById('dividendDate').textContent = metrics.dividendGrowthRate5Y ? "Quarterly Scheduled" : "Non-dividend equity";

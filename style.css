@@ -320,3 +320,18 @@ button#searchBtn:hover {
     box-shadow: -10px 0 25px rgba(0,0,0,0.5);
     overflow-y: auto;
 }
+
+
+.history-panel.open {
+    right: 0;
+}
+
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1rem;
+}

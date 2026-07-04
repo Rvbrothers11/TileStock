@@ -18,3 +18,15 @@
         </div>
     </div>
 
+
+
+    <div id="historyPanel" class="history-panel">
+        <div class="history-header">
+            <h3>Search Logs</h3>
+            <button id="closeHistoryBtn" class="close-btn">&times;</button>
+        </div>
+        <div id="historyList" class="history-list">
+            <p class="empty-msg" style="color:var(--text-muted); text-align:center;">No recent searches.</p>
+        </div>
+        <button id="clearHistoryBtn" class="nav-btn" style="width: 100%; margin-top: 1.5rem; text-align: center;">Clear All Logs</button>
+    </div>

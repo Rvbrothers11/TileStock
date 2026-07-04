@@ -8,3 +8,4 @@ const welcomeState = document.getElementById('welcomeState');
 const historyPanel = document.getElementById('historyPanel');
 const portfolioPanel = document.getElementById('portfolioPanel');
 const historyList = document.getElementById('historyList');
+

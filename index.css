@@ -112,3 +112,24 @@
                     <button class="game-tab active" data-target="gameTrader">Day Trader Simulator</button>
                     <button class="game-tab" data-target="gameClicker">Corporate Raider (Idle)</button>
                 </div>
+
+
+                <div id="gameTrader" class="game-view active">
+                    <div class="game-header">
+                        <div class="game-info">
+                            <h4>Algorithmic Price Simulator</h4>
+                            <p>Time the simulated volatility. Start with $1,000.</p>
+                        </div>
+                        <div class="game-stats">
+                            <span>Net Worth: <strong id="gameNetWorth" class="color-buy">$1,000.00</strong></span>
+                            <span id="gamePosition" class="position-badge empty">No Position</span>
+                        </div>
+                    </div>
+                    <div class="game-canvas-container">
+                        <canvas id="gameCanvas"></canvas>
+                    </div>
+                    <div class="game-controls">
+                        <button id="gameBuyBtn" class="game-btn buy-btn">EXECUTE BUY (MARKET)</button>
+                        <button id="gameSellBtn" class="game-btn sell-btn" disabled>EXECUTE SELL (MARKET)</button>
+                    </div>
+                </div>

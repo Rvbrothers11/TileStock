@@ -86,3 +86,4 @@ document.querySelectorAll('.game-tab').forEach(tab => {
         document.getElementById(e.target.getAttribute('data-target')).classList.remove('hidden');
     });
 });
+

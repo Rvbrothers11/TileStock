@@ -30,3 +30,15 @@
         </div>
         <button id="clearHistoryBtn" class="nav-btn" style="width: 100%; margin-top: 1.5rem; text-align: center;">Clear All Logs</button>
     </div>
+
+
+
+    <div id="portfolioPanel" class="history-panel">
+        <div class="history-header">
+            <h3>Portfolio & Watchlist</h3>
+            <button id="closePortfolioBtn" class="close-btn">&times;</button>
+        </div>
+        <div class="portfolio-stats">
+            <p style="color:var(--text-muted); font-size:0.85rem; text-transform:uppercase;">Paper Cash Balance</p>
+            <h2 id="paperBalanceDisplay" class="color-buy" style="margin-top:0.5rem; font-size:2rem;">$10,000.00</h2>
+        </div>

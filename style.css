@@ -29,3 +29,35 @@ body.theme-matrix {
     --accent-glow: rgba(51, 255, 51, 0.4);
 }
 
+
+
+body.theme-bloomberg {
+    --bg-color: #000000;
+    --card-bg: #0f0f0f;
+    --card-hover: #1a1a1a;
+    --text-main: #ff9900;
+    --text-muted: #cc7700;
+    --border: #331100;
+    --border-highlight: #662200;
+    --buy-color: #ffaa00;
+    --sell-color: #ff3300;
+    --hold-color: #ffcc00;
+    --accent: #ff9900;
+    --accent-glow: rgba(255, 153, 0, 0.4);
+}
+
+
+body.theme-miami {
+    --bg-color: #1a0033;
+    --card-bg: #2a004d;
+    --card-hover: #3b006b;
+    --text-main: #00ffff;
+    --text-muted: #ff00ff;
+    --border: #4d0099;
+    --border-highlight: #7300e6;
+    --buy-color: #00ffff;
+    --sell-color: #ff00ff;
+    --hold-color: #ffff00;
+    --accent: #00ffff;
+    --accent-glow: rgba(0, 255, 255, 0.4);
+}

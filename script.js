@@ -9,3 +9,9 @@ const historyPanel = document.getElementById('historyPanel');
 const portfolioPanel = document.getElementById('portfolioPanel');
 const historyList = document.getElementById('historyList');
 
+
+
+let searchHistory = JSON.parse(localStorage.getItem('tileStockHistory')) || [];
+let paperBalance = parseFloat(localStorage.getItem('tileStockBalance')) || 10000.00;
+let paperHoldings = JSON.parse(localStorage.getItem('tileStockHoldings')) || {};
+let watchlist = JSON.parse(localStorage.getItem('tileStockWatchlist')) || [];

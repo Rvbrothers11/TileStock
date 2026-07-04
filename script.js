@@ -321,3 +321,46 @@ function runQuantitativeAnalysis(currentPrice, high52, low52, peRatio, beta) {
         verdictReason.textContent = "Equilibrium distribution mechanics are stable. Maintain position allocation pending further momentum execution signals.";
     }
 }
+
+
+
+function subscribeToWebsocket(ticker) {
+    if (!liveWs || liveWs.readyState !== WebSocket.OPEN) {
+        liveWs = new WebSocket(`wss://ws.finnhub.io?token=${API_KEY}`);
+        liveWs.onopen = () => {
+            liveWs.send(JSON.stringify({'type':'subscribe', 'symbol': ticker}));
+            currentWsTicker = ticker;
+        };
+        liveWs.onmessage = (e) => {
+            const data = JSON.parse(e.data);
+            if (data.type === 'trade' && data.data && data.data.length > 0) {
+                updateLivePrice(data.data[0].p);
+            }
+        };
+    } else {
+        if (currentWsTicker) liveWs.send(JSON.stringify({'type':'unsubscribe', 'symbol': currentWsTicker}));
+        liveWs.send(JSON.stringify({'type':'subscribe', 'symbol': ticker}));
+        currentWsTicker = ticker;
+    }
+}
+
+
+function updateLivePrice(newPrice) {
+    currentAssetPrice = newPrice;
+    const priceEl = document.getElementById('currentPrice');
+    const oldPrice = parseFloat(priceEl.textContent.replace('$', '').replace(/,/g, ''));
+
+
+    priceEl.textContent = `$${newPrice.toFixed(2)}`;
+
+
+    if (newPrice > oldPrice) {
+        priceEl.classList.remove('flash-green', 'flash-red');
+        void priceEl.offsetWidth; 
+        priceEl.classList.add('flash-green');
+    } else if (newPrice < oldPrice) {
+        priceEl.classList.remove('flash-green', 'flash-red');
+        void priceEl.offsetWidth; 
+        priceEl.classList.add('flash-red');
+    }
+}

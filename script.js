@@ -215,3 +215,21 @@ function renderDashboardTiles(ticker, quote, profile, metrics, news, calendar, r
     if (recs && recs.length > 0) {
         const latestRec = recs[0];
         const total = latestRec.strongBuy + latestRec.buy + latestRec.hold + latestRec.sell + latestRec.strongSell;
+
+
+        setTimeout(() => {
+            document.getElementById('recStrongBuy').style.width = `${(latestRec.strongBuy / total) * 100}%`;
+            document.getElementById('recBuy').style.width = `${(latestRec.buy / total) * 100}%`;
+            document.getElementById('recHold').style.width = `${(latestRec.hold / total) * 100}%`;
+            document.getElementById('recSell').style.width = `${((latestRec.sell + latestRec.strongSell) / total) * 100}%`;
+        }, 100);
+
+
+        document.getElementById('txtStrongBuy').textContent = latestRec.strongBuy;
+        document.getElementById('txtBuy').textContent = latestRec.buy;
+        document.getElementById('txtHold').textContent = latestRec.hold;
+        document.getElementById('txtSell').textContent = (latestRec.sell + latestRec.strongSell);
+    } else {
+        ['recStrongBuy', 'recBuy', 'recHold', 'recSell'].forEach(id => document.getElementById(id).style.width = '0%');
+        ['txtStrongBuy', 'txtBuy', 'txtHold', 'txtSell'].forEach(id => document.getElementById(id).textContent = '0');
+    }

@@ -303,3 +303,20 @@ button#searchBtn {
 button#searchBtn:hover {
     filter: brightness(1.2);
 }
+
+
+
+.history-panel {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 350px;
+    height: 100vh;
+    background: var(--card-bg);
+    border-left: 1px solid var(--border);
+    z-index: 1000;
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 1.5rem;
+    box-shadow: -10px 0 25px rgba(0,0,0,0.5);
+    overflow-y: auto;
+}

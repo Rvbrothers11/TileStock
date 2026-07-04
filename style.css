@@ -727,3 +727,51 @@ button#searchBtn:hover {
     font-size: 0.9rem;
     font-weight: bold;
 }
+
+
+
+.tile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+
+.tile {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: 0.2s;
+}
+
+
+.tile:hover {
+    border-color: var(--border-highlight);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+@media (min-width: 768px) {
+    .double-width {
+        grid-column: span 2;
+    }
+}
+
+
+.tile h3 {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.25rem;
+}
+
+
+.tile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}

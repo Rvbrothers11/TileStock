@@ -63,3 +63,4 @@ function returnHome() {
     portfolioPanel.classList.remove('open');
     tickerInput.value = '';
 }
+

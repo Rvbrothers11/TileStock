@@ -83,3 +83,10 @@
                     </nav>
                 </div>
             </div>
+
+
+            <div class="search-box">
+                <input type="text" id="tickerInput" placeholder="Enter name or ticker (e.g., Nvidia, TSLA)..." autocomplete="off">
+                <button id="searchBtn">Execute</button>
+            </div>
+        </header>

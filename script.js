@@ -384,3 +384,9 @@ document.getElementById('starBtn').addEventListener('click', () => {
     savePortfolioState();
     updatePortfolioUI();
 });
+
+
+
+function executeRealTrade(type) {
+    const qty = parseInt(document.getElementById('tradeQty').value);
+    if(isNaN(qty) || qty <= 0 || !currentTicker) return;

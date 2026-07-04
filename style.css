@@ -462,3 +462,15 @@ button#searchBtn:hover {
     color: var(--text-main);
     background: rgba(255, 255, 255, 0.02);
 }
+
+
+.game-tab.active {
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent);
+    background: var(--card-bg);
+}
+
+
+.game-view {
+    padding: 2rem;
+}

@@ -15,3 +15,9 @@ let searchHistory = JSON.parse(localStorage.getItem('tileStockHistory')) || [];
 let paperBalance = parseFloat(localStorage.getItem('tileStockBalance')) || 10000.00;
 let paperHoldings = JSON.parse(localStorage.getItem('tileStockHoldings')) || {};
 let watchlist = JSON.parse(localStorage.getItem('tileStockWatchlist')) || [];
+
+
+let currentTicker = '';
+let currentAssetPrice = 0;
+let liveWs = null;
+let currentWsTicker = '';

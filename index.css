@@ -170,3 +170,42 @@
                 </div>
             </div>
         </section>
+
+
+
+        <div id="loadingMessage" class="status-msg hidden">Fetching live market data and compiling quantitative tiles...</div>
+        <div id="errorMessage" class="status-msg error hidden">Pipeline Exception: Invalid ticker or API rate limit exceeded.</div>
+
+
+        <main id="dashboard" class="tile-grid hidden">
+
+
+            <div class="tile primary-tile">
+                <div class="tile-header">
+                    <h3>Ticker Asset Overview</h3>
+                    <div>
+                        <button id="starBtn" class="star-btn">☆</button>
+                        <span class="live-pulse">LIVE</span>
+                    </div>
+                </div>
+                <h2 id="stockName">--</h2>
+                <h4 id="stockTicker">--</h4>
+                <div class="price-box">
+                    <span id="currentPrice">$0.00</span>
+                    <span id="priceChange" class="badge">0.00%</span>
+                </div>
+                <div class="mini-data-row" style="margin-bottom:1rem;">
+                    <div>Open: <span id="openPrice">--</span></div>
+                    <div>Prev Close: <span id="prevClosePrice">--</span></div>
+                </div>
+
+
+                <div class="trade-controls" style="margin-top:auto; padding-top:1rem; border-top:1px solid var(--border);">
+                    <h4 style="margin-bottom:0.5rem; font-size:0.85rem; color:var(--text-muted); text-transform:uppercase;">Paper Trading Execution</h4>
+                    <div style="display:flex; gap:0.5rem;">
+                        <input type="number" id="tradeQty" placeholder="Qty" min="1" value="1" style="width:70px; padding:0.5rem; text-align:center;">
+                        <button id="buyRealBtn" class="game-btn buy-btn" style="flex:1; padding:0.5rem; font-size:0.85rem;">BUY</button>
+                        <button id="sellRealBtn" class="game-btn sell-btn" style="flex:1; padding:0.5rem; font-size:0.85rem;">SELL</button>
+                    </div>
+                </div>
+            </div>

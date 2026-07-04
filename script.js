@@ -100,3 +100,27 @@ async function resolveTickerQuery(query) {
         return query.toUpperCase();
     } catch (e) { return query.toUpperCase(); }
 }
+
+
+searchBtn.addEventListener('click', async () => {
+    const rawQuery = tickerInput.value.trim();
+    if (!rawQuery) return;
+
+
+    welcomeState.classList.add('hidden');
+    dashboard.classList.add('hidden');
+    historyPanel.classList.remove('open');
+    portfolioPanel.classList.remove('open');
+    document.getElementById('errorMessage').classList.add('hidden');
+    document.getElementById('navHomeBtn').classList.remove('active');
+
+
+    const loader = document.getElementById('loadingMessage');
+    loader.textContent = "Resolving company name to market ticker via NLP...";
+    loader.classList.remove('hidden');
+
+
+    const actualTicker = await resolveTickerQuery(rawQuery);
+    loader.textContent = `Fetching live market data for ${actualTicker}...`;
+    executeMarketDataPipeline(actualTicker);
+});

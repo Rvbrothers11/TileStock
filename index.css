@@ -7,3 +7,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+
+
+    <div id="introScreen" class="intro-overlay">
+        <div class="intro-content">
+            <div class="terminal-loader"></div>
+            <h2 class="intro-title">TILESTOCK<span>PRO</span></h2>
+            <p class="intro-subtitle">Initializing Quantitative Core Matrix...</p>
+        </div>
+    </div>

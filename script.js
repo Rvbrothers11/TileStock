@@ -209,3 +209,9 @@ function renderDashboardTiles(ticker, quote, profile, metrics, news, calendar, r
     document.getElementById('peValue').textContent = metrics.peNormalizedAnnual ? metrics.peNormalizedAnnual.toFixed(1) : 'N/A';
     document.getElementById('betaValue').textContent = metrics.beta ? metrics.beta.toFixed(2) : 'Unranked';
     document.getElementById('divYieldValue').textContent = metrics.dividendYieldIndicatedAnnual ? `${metrics.dividendYieldIndicatedAnnual.toFixed(2)}%` : '0.00%';
+
+
+
+    if (recs && recs.length > 0) {
+        const latestRec = recs[0];
+        const total = latestRec.strongBuy + latestRec.buy + latestRec.hold + latestRec.sell + latestRec.strongSell;

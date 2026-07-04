@@ -104,3 +104,11 @@
                     <button class="quick-chip" data-ticker="META">Meta (META)</button>
                 </div>
             </div>
+
+
+
+            <div class="arcade-hub">
+                <div class="game-tabs">
+                    <button class="game-tab active" data-target="gameTrader">Day Trader Simulator</button>
+                    <button class="game-tab" data-target="gameClicker">Corporate Raider (Idle)</button>
+                </div>

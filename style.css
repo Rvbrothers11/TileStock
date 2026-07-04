@@ -118,3 +118,16 @@ body {
     font-weight: 900;
     letter-spacing: 0.1em;
 }
+
+
+.intro-title span {
+    color: var(--accent);
+}
+
+
+.intro-subtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    text-align: center;
+}

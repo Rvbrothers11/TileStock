@@ -71,3 +71,18 @@ document.getElementById('closeHistoryBtn').addEventListener('click', () => histo
 document.getElementById('navPortfolioBtn').addEventListener('click', () => { portfolioPanel.classList.add('open'); historyPanel.classList.remove('open'); });
 document.getElementById('closePortfolioBtn').addEventListener('click', () => portfolioPanel.classList.remove('open'));
 document.getElementById('clearHistoryBtn').addEventListener('click', () => { searchHistory = []; localStorage.removeItem('tileStockHistory'); updateHistoryUI(); });
+
+
+document.querySelectorAll('.quick-chip').forEach(chip => {
+    chip.addEventListener('click', () => { tickerInput.value = chip.getAttribute('data-ticker'); searchBtn.click(); });
+});
+
+
+document.querySelectorAll('.game-tab').forEach(tab => {
+    tab.addEventListener('click', (e) => {
+        document.querySelectorAll('.game-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.game-view').forEach(v => v.classList.add('hidden'));
+        e.target.classList.add('active');
+        document.getElementById(e.target.getAttribute('data-target')).classList.remove('hidden');
+    });
+});

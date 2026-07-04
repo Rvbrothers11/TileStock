@@ -500,3 +500,41 @@ function updateHistoryUI() {
         historyList.appendChild(div);
     });
 }
+
+
+
+function initTraderGame() {
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const resizeCanvas = () => { canvas.width = canvas.parentElement.clientWidth; canvas.height = canvas.parentElement.clientHeight; };
+    resizeCanvas(); window.addEventListener('resize', resizeCanvas);
+
+
+    let balance = 1000, shares = 0, price = 100;
+    const history = Array(60).fill(price);
+
+
+    setInterval(() => {
+        price += (Math.random() - 0.5) * 4;
+        if (price < 10) price = 10;
+        history.push(price); history.shift();
+
+
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        ctx.strokeStyle = '#1e293b'; ctx.lineWidth = 1;
+        for(let i=1; i<4; i++) { ctx.beginPath(); ctx.moveTo(0, canvas.height * (i/4)); ctx.lineTo(canvas.width, canvas.height * (i/4)); ctx.stroke(); }
+
+
+        ctx.beginPath(); ctx.strokeStyle = '#3b82f6'; ctx.lineWidth = 3; ctx.lineJoin = 'round';
+        const min = Math.min(...history), max = Math.max(...history), range = (max - min) || 1;
+        history.forEach((p, i) => {
+            const x = (i / 59) * canvas.width, y = canvas.height - ((p - min) / range) * canvas.height;
+            if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+        });
+        ctx.stroke();
+
+
+        const netWorth = balance + (shares * price);
+        document.getElementById('gameNetWorth').textContent = `$${netWorth.toFixed(2)}`;
+        document.getElementById('gameNetWorth').className = netWorth >= 1000 ? 'color-buy' : 'color-sell';
+    }, 250);

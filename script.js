@@ -538,3 +538,9 @@ function initTraderGame() {
         document.getElementById('gameNetWorth').textContent = `$${netWorth.toFixed(2)}`;
         document.getElementById('gameNetWorth').className = netWorth >= 1000 ? 'color-buy' : 'color-sell';
     }, 250);
+
+
+    const buyBtn = document.getElementById('gameBuyBtn'), sellBtn = document.getElementById('gameSellBtn'), posBadge = document.getElementById('gamePosition');
+    buyBtn.onclick = () => { if(balance > 0) { shares = balance / price; balance = 0; buyBtn.disabled = true; sellBtn.disabled = false; posBadge.textContent = `ACTIVE: ${shares.toFixed(2)} SHRS`; posBadge.className = 'position-badge active'; } };
+    sellBtn.onclick = () => { if(shares > 0) { balance = shares * price; shares = 0; buyBtn.disabled = false; sellBtn.disabled = true; posBadge.textContent = 'NO POSITION'; posBadge.className = 'position-badge empty'; } };
+}

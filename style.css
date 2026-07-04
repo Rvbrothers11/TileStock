@@ -441,3 +441,24 @@ button#searchBtn:hover {
     border-bottom: 1px solid var(--border);
     background: rgba(0, 0, 0, 0.2);
 }
+
+
+.game-tab {
+    flex: 1;
+    padding: 1rem;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.85rem;
+    transition: 0.2s;
+}
+
+
+.game-tab:hover {
+    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.02);
+}

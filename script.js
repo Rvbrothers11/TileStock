@@ -364,3 +364,23 @@ function updateLivePrice(newPrice) {
         priceEl.classList.add('flash-red');
     }
 }
+
+
+
+function savePortfolioState() {
+    localStorage.setItem('tileStockBalance', paperBalance);
+    localStorage.setItem('tileStockHoldings', JSON.stringify(paperHoldings));
+    localStorage.setItem('tileStockWatchlist', JSON.stringify(watchlist));
+}
+
+
+document.getElementById('starBtn').addEventListener('click', () => {
+    if(!currentTicker) return;
+    if(watchlist.includes(currentTicker)) {
+        watchlist = watchlist.filter(t => t !== currentTicker);
+    } else {
+        watchlist.push(currentTicker);
+    }
+    savePortfolioState();
+    updatePortfolioUI();
+});

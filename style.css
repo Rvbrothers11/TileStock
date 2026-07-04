@@ -12,3 +12,19 @@
     --accent: #3b82f6;
     --accent-glow: rgba(59, 130, 246, 0.4);
 }
+
+
+body.theme-matrix {
+    --bg-color: #000000;
+    --card-bg: #0a110a;
+    --card-hover: #111a11;
+    --text-main: #33ff33;
+    --text-muted: #11aa11;
+    --border: #004400;
+    --border-highlight: #008800;
+    --buy-color: #33ff33;
+    --sell-color: #ff3333;
+    --hold-color: #bbbb00;
+    --accent: #33ff33;
+    --accent-glow: rgba(51, 255, 51, 0.4);
+}

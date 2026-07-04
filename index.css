@@ -65,3 +65,21 @@
                     <h1>TileStock <span>Pro</span></h1>
                     <p>Advanced Quantitative Market Terminal</p>
                 </div>
+
+
+                <div class="header-controls">
+                    <select id="themeSelector" class="theme-select">
+                        <option value="default">Pro Dark (Default)</option>
+                        <option value="matrix">Matrix Grid</option>
+                        <option value="bloomberg">Bloomberg Amber</option>
+                        <option value="miami">Miami Vice</option>
+                    </select>
+
+
+                    <nav class="top-nav">
+                        <button id="navHomeBtn" class="nav-btn active">Terminal Home</button>
+                        <button id="navPortfolioBtn" class="nav-btn">Portfolio / Watchlist</button>
+                        <button id="navHistoryBtn" class="nav-btn">Search Logs</button>
+                    </nav>
+                </div>
+            </div>

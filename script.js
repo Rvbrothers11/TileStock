@@ -46,3 +46,20 @@ window.addEventListener('DOMContentLoaded', () => {
         updatePortfolioUI();
     }, 1500);
 });
+
+
+
+document.getElementById('navHomeBtn').addEventListener('click', returnHome);
+document.getElementById('brandLogo').addEventListener('click', returnHome);
+
+
+function returnHome() {
+    dashboard.classList.add('hidden');
+    document.getElementById('errorMessage').classList.add('hidden');
+    welcomeState.classList.remove('hidden');
+    document.getElementById('navHomeBtn').classList.add('active');
+    document.getElementById('navPortfolioBtn').classList.remove('active');
+    historyPanel.classList.remove('open');
+    portfolioPanel.classList.remove('open');
+    tickerInput.value = '';
+}

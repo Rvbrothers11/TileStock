@@ -1209,3 +1209,66 @@ button#searchBtn:hover {
     padding: 2rem 0;
     width: 100%;
 }
+
+
+
+.sentiment-badge {
+    display: inline-block;
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.65rem;
+    font-weight: 800;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+    color: #fff;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+
+.color-buy {
+    color: var(--buy-color);
+}
+
+
+.color-sell {
+    color: var(--sell-color);
+}
+
+
+.color-hold {
+    color: var(--hold-color);
+}
+
+
+.bg-buy {
+    background-color: rgba(16, 185, 129, 0.15);
+    color: var(--buy-color);
+}
+
+
+.bg-sell {
+    background-color: rgba(239, 68, 68, 0.15);
+    color: var(--sell-color);
+}
+
+
+.status-msg {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 12px;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+
+.error {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--sell-color);
+    border-color: rgba(239, 68, 68, 0.2);
+}

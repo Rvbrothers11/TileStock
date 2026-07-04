@@ -601,3 +601,20 @@ button#searchBtn:hover {
     filter: grayscale(100%);
 }
 
+
+
+.clicker-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+
+.clicker-main {
+    text-align: center;
+    padding: 2rem;
+    background: var(--bg-color);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}

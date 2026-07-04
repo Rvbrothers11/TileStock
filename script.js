@@ -544,3 +544,24 @@ function initTraderGame() {
     buyBtn.onclick = () => { if(balance > 0) { shares = balance / price; balance = 0; buyBtn.disabled = true; sellBtn.disabled = false; posBadge.textContent = `ACTIVE: ${shares.toFixed(2)} SHRS`; posBadge.className = 'position-badge active'; } };
     sellBtn.onclick = () => { if(shares > 0) { balance = shares * price; shares = 0; buyBtn.disabled = false; sellBtn.disabled = true; posBadge.textContent = 'NO POSITION'; posBadge.className = 'position-badge empty'; } };
 }
+
+
+
+function initClickerGame() {
+    let funds = 0, power = 1, incomePerSec = 0;
+    const fundsEl = document.getElementById('clickerFunds');
+    document.getElementById('clickerBtn').onclick = () => { funds += power; fundsEl.textContent = `$${funds.toFixed(2)}`; };
+
+
+    const upgrades = [['buyInternBtn', 50, 1], ['buyManagerBtn', 500, 15], ['buyServerBtn', 5000, 200]];
+    upgrades.forEach(([id, cost, income]) => {
+        document.getElementById(id).onclick = () => {
+            if (funds >= cost) {
+                funds -= cost; incomePerSec += income; fundsEl.textContent = `$${funds.toFixed(2)}`;
+                const btn = document.getElementById(id); btn.style.borderColor = 'var(--buy-color)';
+                setTimeout(() => btn.style.borderColor = 'var(--border)', 300);
+            }
+        };
+    });
+    setInterval(() => { if (incomePerSec > 0) { funds += (incomePerSec / 10); fundsEl.textContent = `$${funds.toFixed(2)}`; } }, 100);
+}

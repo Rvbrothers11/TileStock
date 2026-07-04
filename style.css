@@ -1044,3 +1044,49 @@ button#searchBtn:hover {
     width: 20px;
     text-align: left;
 }
+
+
+
+.bg-hold {
+    background-color: var(--hold-color);
+}
+
+
+.fx-base {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+
+.currency-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    width: 100%;
+}
+
+
+.fx-item {
+    background: var(--bg-color);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+
+.fx-item span {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+
+.fx-item strong {
+    font-size: 1.1rem;
+    font-weight: 700;
+}

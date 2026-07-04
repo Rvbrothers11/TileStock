@@ -87,3 +87,16 @@ document.querySelectorAll('.game-tab').forEach(tab => {
     });
 });
 
+
+
+async function resolveTickerQuery(query) {
+    try {
+        const res = await fetch(`https://finnhub.io/api/v1/search?q=${query}&token=${API_KEY}`);
+        const data = await res.json();
+        if (data.count > 0 && data.result.length > 0) {
+            const bestMatch = data.result.find(r => !r.symbol.includes('.')) || data.result[0];
+            return bestMatch.symbol.toUpperCase();
+        }
+        return query.toUpperCase();
+    } catch (e) { return query.toUpperCase(); }
+}

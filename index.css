@@ -134,3 +134,39 @@
                     </div>
                 </div>
 
+
+
+                <div id="gameClicker" class="game-view hidden">
+                    <div class="clicker-layout">
+                        <div class="clicker-main">
+                            <div class="clicker-stats">
+                                <h3>Corporate Treasury</h3>
+                                <h1 id="clickerFunds" class="color-buy">$0.00</h1>
+                                <p>Revenue Per Click: $<span id="clickerPower">1</span></p>
+                            </div>
+                            <button id="clickerBtn" class="terminal-click-btn">
+                                <span class="pulse-icon">⚡</span> GENERATE CAPITAL
+                            </button>
+                        </div>
+                        <div class="upgrades-panel">
+                            <h4>Automated Acquisitions</h4>
+                            <button id="buyInternBtn" class="upgrade-btn">
+                                <span class="upg-title">Hire Analyst</span>
+                                <span class="upg-cost">$50</span>
+                                <span class="upg-effect">+$1/sec</span>
+                            </button>
+                            <button id="buyManagerBtn" class="upgrade-btn">
+                                <span class="upg-title">Hire Portfolio Manager</span>
+                                <span class="upg-cost">$500</span>
+                                <span class="upg-effect">+$15/sec</span>
+                            </button>
+                            <button id="buyServerBtn" class="upgrade-btn">
+                                <span class="upg-title">HFT Server Rack</span>
+                                <span class="upg-cost">$5,000</span>
+                                <span class="upg-effect">+$200/sec</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>

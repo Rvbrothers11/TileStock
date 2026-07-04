@@ -64,3 +64,10 @@ function returnHome() {
     tickerInput.value = '';
 }
 
+
+
+document.getElementById('navHistoryBtn').addEventListener('click', () => { historyPanel.classList.add('open'); portfolioPanel.classList.remove('open'); });
+document.getElementById('closeHistoryBtn').addEventListener('click', () => historyPanel.classList.remove('open'));
+document.getElementById('navPortfolioBtn').addEventListener('click', () => { portfolioPanel.classList.add('open'); historyPanel.classList.remove('open'); });
+document.getElementById('closePortfolioBtn').addEventListener('click', () => portfolioPanel.classList.remove('open'));
+document.getElementById('clearHistoryBtn').addEventListener('click', () => { searchHistory = []; localStorage.removeItem('tileStockHistory'); updateHistoryUI(); });

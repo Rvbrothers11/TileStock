@@ -90,3 +90,17 @@
                 <button id="searchBtn">Execute</button>
             </div>
         </header>
+
+
+
+        <section id="welcomeState" class="welcome-section">
+            <div class="quick-access">
+                <h3>Trending Market Tickers</h3>
+                <div class="chip-container">
+                    <button class="quick-chip" data-ticker="AAPL">Apple (AAPL)</button>
+                    <button class="quick-chip" data-ticker="NVDA">Nvidia (NVDA)</button>
+                    <button class="quick-chip" data-ticker="TSLA">Tesla (TSLA)</button>
+                    <button class="quick-chip" data-ticker="AMD">AMD (AMD)</button>
+                    <button class="quick-chip" data-ticker="META">Meta (META)</button>
+                </div>
+            </div>

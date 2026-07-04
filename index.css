@@ -289,3 +289,38 @@
                     <div class="fx-item"><span>CAD ($)</span> <strong id="fxCad">--</strong></div>
                 </div>
             </div>
+
+
+
+            <div class="tile events-tile">
+                <h3>Corporate Event Calendar</h3>
+                <div class="event-item">
+                    <div class="event-marker"></div>
+                    <div class="event-details">
+                        <span class="event-title">Earnings Announcement</span>
+                        <p class="event-date" id="earningsDate">Awaiting data...</p>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-marker secondary"></div>
+                    <div class="event-details">
+                        <span class="event-title">Ex-Dividend Milestone</span>
+                        <p class="event-date" id="dividendDate">Awaiting data...</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="tile news-tile double-width">
+                <h3>Market Intelligence Feed <span style="font-size:0.7rem; color:var(--text-muted); font-weight:normal; margin-left:0.5rem;">WITH AI SENTIMENT ANALYSIS</span></h3>
+                <div id="newsFeedContainer" class="news-feed">
+                    <p class="news-placeholder">No asset loaded. Intelligence wires are currently idle.</p>
+                </div>
+            </div>
+
+
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

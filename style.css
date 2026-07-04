@@ -210,3 +210,28 @@ header {
     margin-top: 0.25rem;
 }
 
+
+
+.theme-select {
+    background: var(--card-bg);
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.6rem;
+    outline: none;
+    cursor: pointer;
+    transition: 0.2s;
+    font-weight: bold;
+}
+
+
+.theme-select:hover {
+    border-color: var(--accent);
+    color: var(--text-main);
+}
+
+
+.top-nav {
+    display: flex;
+    gap: 1rem;
+}

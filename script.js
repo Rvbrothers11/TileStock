@@ -157,3 +157,15 @@ async function executeMarketDataPipeline(ticker) {
 
 
         if (!quote.c || quote.c === 0) throw new Error("Invalid Ticker or No Data");
+
+
+        currentTicker = ticker;
+        currentAssetPrice = quote.c;
+
+
+        addToHistory(ticker, quote.c, profile.name);
+        renderDashboardTiles(ticker, quote, profile, metrics.metric, news, calendar, recommendations);
+
+
+        document.getElementById('loadingMessage').classList.add('hidden');
+        dashboard.classList.remove('hidden');

@@ -210,3 +210,42 @@
                 </div>
             </div>
 
+
+
+            <div class="tile verdict-tile double-width">
+                <div class="verdict-layout">
+                    <div class="verdict-left">
+                        <h3>Quant Engine Verdict</h3>
+                        <div id="verdictBadge" class="verdict-text">--</div>
+                    </div>
+                    <div class="verdict-right">
+                        <p id="verdictReason" class="reason-text">Awaiting operational asset input parameters...</p>
+                        <div class="risk-meter-container">
+                            <span class="risk-label">Volatility Risk Index:</span>
+                            <div class="risk-bar"><div id="riskProgress" class="risk-progress"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="tile data-tile">
+                <h3>Historical Benchmarks</h3>
+                <ul class="data-list">
+                    <li><span>52-Week High</span> <strong id="high52Value">--</strong></li>
+                    <li><span>52-Week Low</span> <strong id="low52Value">--</strong></li>
+                    <li><span>Distance to High</span> <strong id="distHighValue">--</strong></li>
+                    <li><span>Distance to Low</span> <strong id="distLowValue">--</strong></li>
+                </ul>
+            </div>
+
+
+            <div class="tile data-tile">
+                <h3>Asset Fundamentals</h3>
+                <ul class="data-list">
+                    <li><span>Market Cap</span> <strong id="mcapValue">--</strong></li>
+                    <li><span>P/E Ratio (TTM)</span> <strong id="peValue">--</strong></li>
+                    <li><span>Beta Metric</span> <strong id="betaValue">--</strong></li>
+                    <li><span>Dividend Yield</span> <strong id="divYieldValue">--</strong></li>
+                </ul>
+            </div>

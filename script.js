@@ -127,3 +127,22 @@ searchBtn.addEventListener('click', async () => {
 
 
 tickerInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') searchBtn.click(); });
+
+
+
+async function executeMarketDataPipeline(ticker) {
+    try {
+        const dateObj = new Date();
+        const toDateStr = dateObj.toISOString().split('T')[0];
+        dateObj.setDate(dateObj.getDate() - 7);
+        const fromDateStr = dateObj.toISOString().split('T')[0];
+
+
+        const [quoteRes, profileRes, metricRes, newsRes, calendarRes, recRes] = await Promise.all([
+            fetch(`https://finnhub.io/api/v1/quote?symbol=${ticker}&token=${API_KEY}`),
+            fetch(`https://finnhub.io/api/v1/stock/profile2?symbol=${ticker}&token=${API_KEY}`),
+            fetch(`https://finnhub.io/api/v1/stock/metric?symbol=${ticker}&metric=all&token=${API_KEY}`),
+            fetch(`https://finnhub.io/api/v1/company-news?symbol=${ticker}&from=${fromDateStr}&to=${toDateStr}&token=${API_KEY}`),
+            fetch(`https://finnhub.io/api/v1/calendar/earnings?symbol=${ticker}&token=${API_KEY}`),
+            fetch(`https://finnhub.io/api/v1/stock/recommendation?symbol=${ticker}&token=${API_KEY}`)
+        ]);

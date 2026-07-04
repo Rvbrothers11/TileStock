@@ -335,3 +335,36 @@ button#searchBtn:hover {
     border-bottom: 1px solid var(--border);
     padding-bottom: 1rem;
 }
+
+
+.close-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+
+.close-btn:hover {
+    color: var(--text-main);
+}
+
+
+.history-item {
+    background: var(--bg-color);
+    border: 1px solid var(--border);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+    line-height: 1.4;
+}
+
+
+.history-item:hover {
+    border-color: var(--accent);
+    transform: translateX(-5px);
+}

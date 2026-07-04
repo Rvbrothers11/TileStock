@@ -247,3 +247,45 @@ function renderDashboardTiles(ticker, quote, profile, metrics, news, calendar, r
     const earningsDateEl = document.getElementById('earningsDate');
     earningsDateEl.textContent = (calendar.earningsCalendar && calendar.earningsCalendar.length > 0) ? calendar.earningsCalendar[0].date : "No near-term release scheduled.";
     document.getElementById('dividendDate').textContent = metrics.dividendGrowthRate5Y ? "Quarterly Scheduled" : "Non-dividend equity";
+
+
+
+    const bullishWords = ['soars', 'record', 'highs', 'beats', 'up', 'buy', 'growth', 'surges', 'jump', 'gains', 'strong', 'profit'];
+    const bearishWords = ['plunges', 'lawsuit', 'lows', 'misses', 'down', 'sell', 'loss', 'drops', 'fall', 'investigation', 'crash', 'weak'];
+
+
+    function getSentiment(text) {
+        let score = 0;
+        const words = text.toLowerCase().split(/\W+/);
+        words.forEach(w => {
+            if(bullishWords.includes(w)) score++;
+            if(bearishWords.includes(w)) score--;
+        });
+        if(score > 0) return { label: 'BULLISH', class: 'bg-buy', txtColor: '#fff' };
+        if(score < 0) return { label: 'BEARISH', class: 'bg-sell', txtColor: '#fff' };
+        return { label: 'NEUTRAL', class: 'bg-hold', txtColor: '#000' };
+    }
+
+
+    const newsContainer = document.getElementById('newsFeedContainer');
+    newsContainer.innerHTML = '';
+    if (news && news.length > 0) {
+        news.slice(0, 5).forEach(article => {
+            const dateStr = new Date(article.datetime * 1000).toLocaleDateString(undefined, {month: 'short', day: 'numeric'});
+            const sent = getSentiment(article.headline);
+            newsContainer.innerHTML += `
+                <a class="news-card" href="${article.url}" target="_blank">
+                    <div class="news-headline">
+                        ${article.headline} 
+                        <span class="sentiment-badge ${sent.class}" style="color:${sent.txtColor}">${sent.label}</span>
+                    </div>
+                    <div class="news-meta">${article.source} • ${dateStr}</div>
+                </a>`;
+        });
+    } else {
+        newsContainer.innerHTML = `<p class="news-placeholder">No recent intelligence dispatches found.</p>`;
+    }
+
+
+    runQuantitativeAnalysis(quote.c, high52, low52, metrics.peNormalizedAnnual, metrics.beta);
+}

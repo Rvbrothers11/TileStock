@@ -131,3 +131,10 @@ body {
     margin-top: 0.5rem;
     text-align: center;
 }
+
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

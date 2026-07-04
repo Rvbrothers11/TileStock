@@ -235,3 +235,21 @@ header {
     display: flex;
     gap: 1rem;
 }
+
+
+.nav-btn {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+
+.nav-btn:hover {
+    border-color: var(--border-highlight);
+    color: var(--text-main);
+}

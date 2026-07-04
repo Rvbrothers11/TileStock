@@ -169,3 +169,15 @@ async function executeMarketDataPipeline(ticker) {
 
         document.getElementById('loadingMessage').classList.add('hidden');
         dashboard.classList.remove('hidden');
+
+
+        subscribeToWebsocket(ticker);
+        updatePortfolioUI(); 
+
+
+    } catch (err) {
+        console.error("Pipeline Error:", err);
+        document.getElementById('loadingMessage').classList.add('hidden');
+        document.getElementById('errorMessage').classList.remove('hidden');
+    }
+}
